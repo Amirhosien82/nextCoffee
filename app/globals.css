@@ -1,0 +1,58 @@
+@font-face {
+  font-family: IRAN_NAZANIN;
+  src: url("../public/font/Far_Nazanin.ttf");
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: IRAN_NAZANIN;
+  color: var(--color-brown-600);
+  font-size: 19px;
+  text-align: center;
+  direction: rtl;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide::before {
+  position: absolute;
+  content: "";
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4) !important;
+  z-index: 6;
+}
+
+.swiper-slide {
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--color-white-100) !important;
+  font-size: 15rem !important;
+}
+
+:root {
+  --color-brown-600: #720000;
+  --color-red-100: #d20606;
+  --color-yellow-100: #d3cebfda;
+  --color-yellow-200: #d3cebf;
+  --color-yellow-300: #f7c0a2;
+  --color-yellow-400: #dcb092;
+  --color-white-100: #f6f6f6;
+
+  --color-black-100: #494842;
+}

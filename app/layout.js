@@ -1,3 +1,7 @@
+import Header from "@/app/_components/Header/Header";
+import "./globals.css";
+import Footer from "@/app/_components/Footer/Footer";
+
 export const metadata = {
   title: {
     template: "نِکست کافه | %s",
@@ -9,9 +13,13 @@ function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <header></header>
-        <main></main>
-        <footer></footer>
+        <header>
+          <Header />
+        </header>
+        <main>{children}</main>
+        <footer>
+          <Footer />
+        </footer>
       </body>
     </html>
   );

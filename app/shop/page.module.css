@@ -1,0 +1,24 @@
+.container_store {
+  width: 100%;
+  background-color: var(--color-yellow-200);
+  display: grid;
+  padding: 1.2rem;
+  grid-template-columns: 1fr;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 750px) {
+  .container_store {
+    padding: 3rem 6rem;
+    grid-template-columns: 3fr 1fr;
+  }
+
+  .products {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
