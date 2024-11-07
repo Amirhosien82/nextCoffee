@@ -11,6 +11,7 @@ import styled from "./page.module.css";
 export const metadata={title:"منو"}
 
 
+
 async function Page() {
   const [espresso, iceCream, samuti, stylishBar] = await Promise.all([
     getEspresso(),
