@@ -2,6 +2,7 @@
 import Image from "next/image";
 import styled from "./ItemProduct.module.css";
 import Link from "next/link";
+import { HiOutlineHeart, HiOutlineShoppingBag } from "react-icons/hi2";
 
 function ItemProduct({ product }) {
   const { images, name, price, discount, id } = product;
@@ -9,21 +10,36 @@ function ItemProduct({ product }) {
 
   const nameEdit = name.length < 24 ? name : name.slice(0, 21) + "...";
   return (
-    <Link href={`/shop/${id}`} className={styled.content}>
-      <div className={styled.container_image}>
-        <Image src={image} alt="image product" fill />
-        <button type="button" className={styled.btn_add}>افزودن به سبد خرید</button>
+    <div className={styled.content}>
+      <Link href={`/shop/${id}`} className={styled.contentLink}>
+        <div className={styled.container_image}>
+          <Image src={image} alt="image product" fill />
+        </div>
+        <h3 className={styled.name}>{nameEdit}</h3>
+        <div className={styled.content_price}>
+          <h3 className={discount > 0 ? styled.price : styled.discount}>
+            {price},000 تومان
+          </h3>
+          {discount > 0 && (
+            <h3 className={styled.discount}>{price - discount},000 تومان</h3>
+          )}
+        </div>
+      </Link>
+      <div className={styled.actions}>
+        <div className={styled.container_action}>
+          <button type="button">
+            <HiOutlineShoppingBag size={17} />
+          </button>
+          <h3>افزودن به سبد خرید</h3>
+        </div>
+        <div className={styled.container_action}>
+          <button type="button">
+            <HiOutlineHeart size={17} />
+          </button>
+          <h3>افزودن به علاقه مندی ها</h3>
+        </div>
       </div>
-      <h3 className={styled.name}>{nameEdit}</h3>
-      <div className={styled.content_price}>
-        <h3 className={discount > 0 ? styled.price : styled.discount}>
-          {price},000 تومان
-        </h3>
-        {discount > 0 && (
-          <h3 className={styled.discount}>{price - discount},000 تومان</h3>
-        )}
-      </div>
-    </Link>
+    </div>
   );
 }
 

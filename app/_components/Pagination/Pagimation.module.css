@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+}
+
+.container > button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.4rem 0.8rem;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 0;
+  outline: 0;
+  border: var(--border-sm);
+  background-color: var(--color-white-100);
+  color: var(--color-black-100);
+  transition: all 0.2s;
+}
+
+.container > button:hover {
+  background-color: var(--color-brown-600);
+  color: var(--color-white-100);
+}
+
+.active {
+  background-color: var(--color-brown-600) !important;
+  color: var(--color-white-100) !important;
+}
