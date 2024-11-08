@@ -1,0 +1,33 @@
+.counter {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 5px;
+}
+
+.button {
+  cursor: pointer;
+  background-color: var(--color-white-100);
+  border: 0;
+  outline: 0;
+  padding: 0rem 0.7rem;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  color: var(--color-black-100);
+  transition: all 0.2s;
+}
+
+.button:hover {
+  color: var(--color-white-100);
+  background-color: var(--color-brown-600);
+}
+
+.count {
+  padding: 0 1.8rem;
+  background-color: var(--color-white-100);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10rem;
+  color: var(--color-black-100);
+}

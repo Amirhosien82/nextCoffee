@@ -4,14 +4,17 @@ import { createContext, useContext, useState } from "react";
 const ContextProvider = createContext();
 
 function ContextApi({ children }) {
-  const [carts, setCarts] = useState(localStorage.getItem("carts") || []);
+  const [carts, setCarts] = useState(
+    JSON.parse(localStorage.getItem("carts")) || []
+  );
 
   //function carts
-  
+
   function clearCarts() {
     setCarts([]);
     localStorage.setItem("carts", JSON.stringify([]));
   }
+  
   function insertCart(cart) {
     setCarts((oldCarts) => {
       if (oldCarts.some((item) => item.id === cart.id)) {
@@ -31,11 +34,11 @@ function ContextApi({ children }) {
     });
   }
 
-  function plusCountCart(cart) {
+  function changeCountCart(cart, count) {
     setCarts((oldCarts) => {
       const newCarts = oldCarts.map((item) => {
         if (item.id === cart.id) {
-          const newCart = { ...cart, count: cart.count + 1 };
+          const newCart = { ...cart, count: count };
 
           return newCart;
         }
@@ -45,22 +48,6 @@ function ContextApi({ children }) {
       return newCarts;
     });
   }
-
-  function minusCountCart(cart) {
-    setCarts((oldCarts) => {
-      const newCarts = oldCarts.map((item) => {
-        if (item.id === cart.id) {
-          const newCart = { ...cart, count: cart.count - 1 };
-
-          return newCart;
-        }
-        return item;
-      });
-      localStorage.setItem("carts", JSON.stringify(newCarts));
-      return newCarts;
-    });
-  }
-
 
   return (
     <ContextProvider.Provider
@@ -69,8 +56,8 @@ function ContextApi({ children }) {
         clearCarts,
         insertCart,
         removeCart,
-        plusCountCart,
-        minusCountCart,
+        changeCountCart,
+        // minusCountCart,
       }}
     >
       {children}

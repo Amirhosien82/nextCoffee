@@ -31,7 +31,15 @@ function ItemProduct({ product }) {
           <button
             type="button"
             onClick={() => {
-              const cart = { ...product, count: 1 };
+              const cart = {
+                id: product.id,
+                images: product.images,
+                name: product.name,
+                price: product.price,
+                discount: product.discount,
+                number:product.number,
+                count: 1,
+              };
               insertCart(cart);
             }}
           >

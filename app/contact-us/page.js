@@ -6,8 +6,6 @@ import Leaflet from "../_components/Leaflet/Leaflet";
 
 export const metadata = { title: "تماس با ما" };
 
-export const revalidate = 0;
-
 async function Page() {
   const { phone, github, linkedin, address, position } = await getContact();
 

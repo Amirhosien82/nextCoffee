@@ -11,10 +11,12 @@ import {
 } from "react-icons/hi2";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { useApi } from "@/app/_context-api/ContextApi";
 
 function Header() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const { carts } = useApi();
 
   return (
     <div className={styled.container}>
@@ -160,8 +162,14 @@ function Header() {
               <HiMagnifyingGlass size={20} />
             </button>
           </div>
-          <Link href="/cart" className={styled.btn_header}>
+          <Link
+            href="/cart"
+            className={`${styled.btn_header} ${styled.btnBadge}`}
+          >
             <HiOutlineShoppingBag size={30} />
+            {carts.length > 0 && (
+              <span className={styled.badge}>{carts.length}</span>
+            )}
           </Link>
           <Link href="/wishlist" className={styled.btn_header}>
             <HiOutlineHeart size={30} />

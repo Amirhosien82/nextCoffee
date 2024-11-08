@@ -85,6 +85,11 @@
   background-color: var(--color-brown-600);
 }
 
+.btn_header:hover span {
+  color: var(--color-brown-600);
+  background-color: var(--color-white-100);
+}
+
 .btn_header:hover path {
   color: var(--color-white-100);
 }
@@ -118,6 +123,22 @@
 
 .btn_md {
   display: none;
+}
+
+.btnBadge {
+  position: relative;
+}
+
+.badge {
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  background-color: var(--color-brown-600);
+  color: var(--color-white-100);
+  padding: 0.1rem 0.4rem;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  transition: all 0.2s;
 }
 
 /* menus links */
