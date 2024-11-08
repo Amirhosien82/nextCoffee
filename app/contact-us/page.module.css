@@ -1,0 +1,91 @@
+.container {
+  padding: var(--pading-page-sm);
+  background-color: var(--color-yellow-200);
+}
+
+.title {
+  font-size: 2rem;
+  text-align: start;
+}
+
+.contacts {
+  display: grid;
+  padding: 2rem 1.2rem;
+
+  grid-template-columns: 1fr;
+  background-color: var(--color-yellow-400);
+  border-radius: var(--border-radius-md);
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  gap: 1.2rem;
+}
+
+.container_contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.discription {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: stretch;
+}
+
+.discription h3 {
+  font-size: 1.5rem;
+}
+
+.container_logo {
+  background-color: var(--color-brown-600);
+  width: 70px;
+  height: 70px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container_logo * {
+  color: var(--color-white-100) !important;
+}
+
+.discription a {
+  color: var(--color-black-100);
+  cursor: pointer;
+}
+
+.discription p {
+  color: var(--color-black-100);
+}
+
+.item {
+  display: flex;
+  gap: 0.8rem;
+  align-items: stretch;
+}
+
+.container_leaflet {
+  width: 100%;
+  aspect-ratio: 1/1;
+  
+}
+
+@media (min-width: 730px) {
+  .container {
+    padding: var(--pading-page-lg);
+  }
+
+  .contacts {
+    grid-template-columns: 1fr 1fr;
+    padding: 2rem 3rem;
+  }
+
+  .title {
+    font-size: 3rem;
+  }
+
+  .container_leaflet {
+    aspect-ratio: initial;
+  }
+}

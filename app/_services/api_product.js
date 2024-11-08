@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import supabase from "./supabase";
 
 async function getProducts(page = 1, group = 0) {
@@ -12,7 +13,6 @@ async function getProducts(page = 1, group = 0) {
 
     if (error) {
       console.error("error in loaded products");
-      throw new error("error in loaded products");
     }
     return products;
   } else {
@@ -24,7 +24,6 @@ async function getProducts(page = 1, group = 0) {
 
     if (error) {
       console.error("error in loaded products");
-      throw new error("error in loaded products");
     }
     return products;
   }
@@ -39,7 +38,7 @@ async function getProduct(id) {
 
   if (error) {
     console.error("error in loaded product");
-    throw new error("error in loaded product");
+    notFound();
   }
   return product;
 }

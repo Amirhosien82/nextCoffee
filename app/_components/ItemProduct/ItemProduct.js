@@ -3,11 +3,12 @@ import Image from "next/image";
 import styled from "./ItemProduct.module.css";
 import Link from "next/link";
 import { HiOutlineHeart, HiOutlineShoppingBag } from "react-icons/hi2";
+import { useApi } from "@/app/_context-api/ContextApi";
 
 function ItemProduct({ product }) {
   const { images, name, price, discount, id } = product;
   const image = images?.at(0);
-
+  const { insertCart } = useApi();
   const nameEdit = name.length < 24 ? name : name.slice(0, 21) + "...";
   return (
     <div className={styled.content}>
@@ -27,7 +28,13 @@ function ItemProduct({ product }) {
       </Link>
       <div className={styled.actions}>
         <div className={styled.container_action}>
-          <button type="button">
+          <button
+            type="button"
+            onClick={() => {
+              const cart = { ...product, count: 1 };
+              insertCart(cart);
+            }}
+          >
             <HiOutlineShoppingBag size={17} />
           </button>
           <h3>افزودن به سبد خرید</h3>

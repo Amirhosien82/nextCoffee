@@ -1,6 +1,7 @@
 import Header from "@/app/_components/Header/Header";
 import "./globals.css";
 import Footer from "@/app/_components/Footer/Footer";
+import ContextApi from "./_context-api/ContextApi";
 
 export const metadata = {
   title: {
@@ -11,17 +12,19 @@ export const metadata = {
 
 function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body>
-        <header>
-          <Header />
-        </header>
-        <main>{children}</main>
-        <footer>
-          <Footer />
-        </footer>
-      </body>
-    </html>
+    <ContextApi>
+      <html lang="en">
+        <body>
+          <header>
+            <Header />
+          </header>
+          <main>{children}</main>
+          <footer>
+            <Footer />
+          </footer>
+        </body>
+      </html>
+    </ContextApi>
   );
 }
 
