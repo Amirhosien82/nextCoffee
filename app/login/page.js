@@ -1,6 +1,5 @@
 import styled from "./page.module.css";
-import { PiPasswordThin, PiUser, PiUserBold } from "react-icons/pi";
-import { HiOutlineMail } from "react-icons/hi";
+
 import Form from "../_components/Form/Form";
 import { signIn } from "../auth";
 function Page() {
