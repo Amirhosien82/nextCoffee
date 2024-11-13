@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { getAllWorks } from "../_services/api_works";
+import { getAllWorks } from "@/app/_services/api_works";
 import styled from "./page.module.css";
 
 export const metadata = {

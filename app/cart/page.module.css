@@ -73,6 +73,8 @@
   color: var(--color-brown-600);
 }
 
+
+
 @media (min-width: 730px) {
   .container {
     padding: var(--pading-page-lg);

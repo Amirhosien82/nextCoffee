@@ -1,18 +1,17 @@
-import ItemMenu from "../_components/ItemMenu/ItemMenu";
+import ItemMenu from "@/app/_components/ItemMenu/ItemMenu";
 
 import {
   getEspresso,
   getIceCream,
   getSamuti,
   getStylishBar,
-} from "../_services/api_menu";
+} from "@/app/_services/api_menu";
 import styled from "./page.module.css";
 
-export const metadata={title:"منو"}
-
-
+export const metadata = { title: "منو" };
 
 async function Page() {
+
   const [espresso, iceCream, samuti, stylishBar] = await Promise.all([
     getEspresso(),
     getIceCream(),

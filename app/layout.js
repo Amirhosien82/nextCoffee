@@ -1,7 +1,7 @@
 import Header from "@/app/_components/Header/Header";
 import "./globals.css";
-import Footer from "@/app/_components/Footer/Footer";
-import ContextApi from "./_context-api/ContextApi";
+import Footer from "@/app/_components/Footer/Footer.js";
+import ContextApi from "@/app/_context-api/ContextApi";
 
 export const metadata = {
   title: {

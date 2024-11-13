@@ -1,8 +1,11 @@
 import { HiMiniPhone } from "react-icons/hi2";
 import { FaGithub, FaLinkedin, FaMapMarkerAlt } from "react-icons/fa";
-import { getContact } from "../_services/api_contact";
+import { getContact } from "@/app/_services/api_contact";
 import styled from "./page.module.css";
-import Leaflet from "../_components/Leaflet/Leaflet";
+import dynamic from "next/dynamic";
+const Leaflet = dynamic(() => import("@/app/_components/Leaflet/Leaflet"), {
+  ssr: false,
+});
 
 export const metadata = { title: "تماس با ما" };
 

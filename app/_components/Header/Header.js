@@ -9,14 +9,19 @@ import {
   HiOutlineShoppingBag,
   HiOutlineXMark,
 } from "react-icons/hi2";
-import { usePathname } from "next/navigation";
+import { IoMdClose } from "react-icons/io";
+import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import { useApi } from "@/app/_context-api/ContextApi";
 
 function Header() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const [text, setText] = useState("");
   const { carts } = useApi();
+  const { push } = useRouter();
+  const pathName = usePathname();
+  console.log("carts", carts);
 
   return (
     <div className={styled.container}>
@@ -157,10 +162,43 @@ function Header() {
               type="text"
               className={styled.input_search}
               placeholder="جستجو..."
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  const searchParams = new URLSearchParams();
+                  if (text) searchParams.set("name", text);
+                  push(`/shop?${searchParams.toString()}`);
+                }
+              }}
             />
-            <button type="button" className={styled.btn_search}>
+            <button
+              type="button"
+              onClick={() => {
+                const searchParams = new URLSearchParams();
+                if (text) searchParams.set("name", text);
+                push(`/shop?${searchParams.toString()}`);
+              }}
+              className={styled.btn_search}
+            >
               <HiMagnifyingGlass size={20} />
             </button>
+            {text && (
+              <button
+                type="button"
+                style={{ right: "12px", left: "initial" }}
+                onClick={() => {
+                  setText("");
+                  if (pathName === "/shop") {
+                    const searchParams = new URLSearchParams();
+                    push(`/shop?${searchParams.toString()}`);
+                  }
+                }}
+                className={styled.btn_search}
+              >
+                <IoMdClose size={20} />
+              </button>
+            )}
           </div>
           <Link
             href="/cart"

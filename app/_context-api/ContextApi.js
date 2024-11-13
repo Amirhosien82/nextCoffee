@@ -1,12 +1,14 @@
 "use client";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const ContextProvider = createContext();
 
 function ContextApi({ children }) {
-  const [carts, setCarts] = useState(
-    JSON.parse(localStorage.getItem("carts")) || []
-  );
+  const [carts, setCarts] = useState([]);
+
+  useEffect(() => {
+    setCarts(JSON.parse(localStorage.getItem("carts")) || []);
+  }, []);
 
   //function carts
 
@@ -14,7 +16,7 @@ function ContextApi({ children }) {
     setCarts([]);
     localStorage.setItem("carts", JSON.stringify([]));
   }
-  
+
   function insertCart(cart) {
     setCarts((oldCarts) => {
       if (oldCarts.some((item) => item.id === cart.id)) {

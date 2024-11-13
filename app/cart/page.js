@@ -1,12 +1,24 @@
 "use client";
 import Image from "next/image";
-import { useApi } from "../_context-api/ContextApi";
+import { useApi } from "@/app/_context-api/ContextApi";
 import styled from "./page.module.css";
-import Counter from "../_components/Counter/Counter";
+import Counter from "@/app/_components/Counter/Counter";
 import { HiOutlineTrash } from "react-icons/hi2";
+import Link from "next/link";
+import Empity from "../_components/Empity/Empity";
+
+// export const metadata = { title: "سبد خرید" };
 
 function Page() {
   const { carts, changeCountCart, removeCart } = useApi();
+
+  if (carts.length === 0) {
+    return (
+      <div className={styled.container}>
+        <Empity text="سبد خرید شما در حال حاضر خالی است." />
+      </div>
+    );
+  }
 
   return (
     <div className={styled.container}>
@@ -36,13 +48,15 @@ function Page() {
                 </button>
               </td>
               <td>
-                <Image
-                  src={cart.images.at(0)}
-                  width={150}
-                  height={150}
-                  alt="image"
-                  style={{ borderRadius: "15px" }}
-                />
+                <Link href={`shop/${cart.id}`}>
+                  <Image
+                    src={cart.images.at(0)}
+                    width={150}
+                    height={150}
+                    alt="image"
+                    style={{ borderRadius: "15px" }}
+                  />
+                </Link>
               </td>
               <td>{cart.name}</td>
               <td>{cart.price - cart.discount},000</td>
