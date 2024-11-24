@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import styled from "./ShopCoffee.module.css";
+import HoverImg from "../hoverImg/HoverImg";
 function ShopCoffe() {
   return (
     <>
@@ -62,6 +63,7 @@ function ShopCoffe() {
             آن را در محیطی دلنشین به شما هدیه می کند.
           </p>
         </div>
+        <HoverImg image="/./images/cups-of-coffee.jpg" />
       </div>
     </>
   );
