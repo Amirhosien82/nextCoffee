@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "bustart": "next build && next start"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.46.1",

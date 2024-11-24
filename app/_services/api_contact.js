@@ -1,4 +1,4 @@
-const { default: supabase } = require("./supabase");
+const { default: supabase } = require("../_lib/supabase");
 
 async function getContact() {
   let { data: contact, error } = await supabase

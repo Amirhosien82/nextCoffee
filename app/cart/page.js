@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useApi } from "@/app/_context-api/ContextApi";
+import { useApi } from "@/app/_lib/ContextApi";
 import styled from "./page.module.css";
 import Counter from "@/app/_components/Counter/Counter";
 import { HiOutlineTrash } from "react-icons/hi2";

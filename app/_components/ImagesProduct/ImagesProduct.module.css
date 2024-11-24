@@ -1,0 +1,49 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.container_image {
+  position: relative;
+  aspect-ratio: 1/1;
+  border-radius: var(--border-radius-sm);
+  overflow: hidden;
+
+}
+
+.image_small {
+  border: 0;
+  outline: 0;
+  position: relative;
+  width: 3.5rem;
+  height: 3.5rem;
+  padding: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.container_image img:hover{
+  transform: scale(1.2);
+}
+
+.container_image img{  
+  
+  transition: all 0.2s;
+}
+
+.container_smallImage {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  gap: 0.7rem;
+}
+
+@media (min-width: 750px) {
+  .image_small {
+    width: 8rem;
+    height: 8rem;
+    border-radius: var(--border-radius-sm);
+  }
+}

@@ -1,4 +1,4 @@
-import supabase from "./supabase";
+import supabase from "../_lib/supabase";
 
 async function getAllWorks() {
   let { data: works, error } = await supabase.from("works").select("*");

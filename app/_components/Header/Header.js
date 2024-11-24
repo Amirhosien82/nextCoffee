@@ -11,17 +11,25 @@ import {
 } from "react-icons/hi2";
 import { IoMdClose } from "react-icons/io";
 import { usePathname, useRouter } from "next/navigation";
-import { useState } from "react";
-import { useApi } from "@/app/_context-api/ContextApi";
+import { useEffect, useState } from "react";
+import { useApi } from "@/app/_lib/ContextApi";
+import { getUser } from "@/app/_services/api_users";
 
 function Header() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [text, setText] = useState("");
+  const [user, setUser] = useState({});
+
   const { carts } = useApi();
   const { push } = useRouter();
   const pathName = usePathname();
-  console.log("carts", carts);
+  useEffect(() => {
+    (async () => {
+      const u = await getUser();
+      setUser(u);
+    })();
+  }, []);
 
   return (
     <div className={styled.container}>
@@ -212,9 +220,15 @@ function Header() {
           <Link href="/wishlist" className={styled.btn_header}>
             <HiOutlineHeart size={30} />
           </Link>
-          <Link href="/login" className={styled.btn_header}>
-            ورود/ثبت نام
-          </Link>
+          {user?.aud ? (
+            <div className={styled.btn_header}>
+             
+            </div>
+          ) : (
+            <Link href="/login" className={styled.btn_header}>
+              ورود/ثبت نام
+            </Link>
+          )}
         </div>
       </div>
     </div>

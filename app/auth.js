@@ -1,5 +1,6 @@
 import NextAuth from "next-auth";
 import Google from "next-auth/providers/google";
+import { signUp } from "./_services/api_users";
 
 export const {
   handlers: { GET, POST },
@@ -17,8 +18,11 @@ export const {
     signIn: "/login",
   },
   callbacks: {
-    async signIn({account}){
+    async signIn({ account, user }) {
+      console.log(user);
 
-    }
+      await signUp();
+    },
+    session({session}){}
   },
 });

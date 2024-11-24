@@ -1,4 +1,4 @@
-import supabase from "./supabase";
+import supabase from "../_lib/supabase";
 
 async function getGroups() {
   let { data: groups, error } = await supabase.from("groups").select("*");

@@ -1,0 +1,54 @@
+.container {
+  width: 100%;
+  background-color: var(--color-yellow-200);
+  padding: var(--pading-page-sm);
+}
+
+.product {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+.name {
+  font-size: 2rem;
+}
+
+.price {
+  color: var(--color-red-100);
+  text-decoration: line-through;
+  font-size: 1.5rem;
+}
+
+.discount {
+  color: var(--color-black-100);
+  font-size: 1.5rem;
+}
+
+.line_caption {
+  font-size: 1.2rem;
+}
+
+.group{
+    color: var(--color-black-100);
+    font-size: 1.1rem;
+}
+
+.group span{
+    color: #000;
+font-weight: 600;
+}
+
+.container_discription * {
+  text-align: start;
+}
+
+@media (min-width: 750px) {
+  .container {
+    padding: var(--pading-page-lg);
+  }
+
+  .product {
+    grid-template-columns: 1fr 1fr;
+  }
+}

@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import supabase from "./supabase";
+import supabase from "../_lib/supabase";
 
 async function getProducts(page = 1, group = 0, search) {
   const end = page * 9;

@@ -10,6 +10,7 @@ import {
 import { HiOutlineMail } from "react-icons/hi";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+import { signUp } from "@/app/_services/api_users";
 
 function Form({ children }) {
   const {
@@ -19,10 +20,11 @@ function Form({ children }) {
     getValues,
   } = useForm();
   const [showPassowrd, setShowPassowrd] = useState();
-  console.log(errors);
 
-  function onSubmit(e) {
-    console.log(e);
+  async function onSubmit(e) {
+    const result = await signUp(e);
+    if (result) {
+    }
   }
 
   return (
@@ -37,7 +39,7 @@ function Form({ children }) {
           {...register("firstName", {
             required: "وارد کردن نام اجباری است",
             pattern: {
-              value: /^([a-z|ا-ی|A-Z]\s?)*$/,
+              value: /^([ا-ی]\s?)*$/,
               message: "نام به صورت صحیح وارد شود",
             },
           })}
@@ -64,7 +66,7 @@ function Form({ children }) {
           {...register("lastName", {
             required: "وارد کردن نام خانوادگی اجباری است",
             pattern: {
-              value: /^([a-z|ا-ی|A-Z]\s?)*$/,
+              value: /^([ا-ی]\s?)*$/,
               message: "نام خانوادگی به صورت صحیح وارد شود",
             },
           })}
@@ -109,9 +111,9 @@ function Form({ children }) {
           type={showPassowrd ? "text" : "password"}
           {...register("password", {
             required: "وارد کردن رمز عبور اجباری است",
-            maxLength: {
-              value: 8,
-              message: "رمز عبور باید هشت رقم باشد",
+            pattern: {
+              value: /^.{8,}$/,
+              message: "رمز عبور باید هشت رقم و یا بیستر باشد",
             },
           })}
         />

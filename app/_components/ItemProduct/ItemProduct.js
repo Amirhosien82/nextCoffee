@@ -3,7 +3,7 @@ import Image from "next/image";
 import styled from "./ItemProduct.module.css";
 import Link from "next/link";
 import { HiOutlineHeart, HiOutlineShoppingBag } from "react-icons/hi2";
-import { useApi } from "@/app/_context-api/ContextApi";
+import { useApi } from "@/app/_lib/ContextApi";
 
 function ItemProduct({ product }) {
   const { images, name, price, discount, id } = product;
@@ -37,7 +37,7 @@ function ItemProduct({ product }) {
                 name: product.name,
                 price: product.price,
                 discount: product.discount,
-                number:product.number,
+                number: product.number,
                 count: 1,
               };
               insertCart(cart);

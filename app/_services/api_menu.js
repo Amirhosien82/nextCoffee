@@ -1,4 +1,4 @@
-const { default: supabase } = require("./supabase");
+const { default: supabase } = require("../_lib/supabase");
 
 async function getEspresso() {
   let { data, error } = await supabase.from("espresso").select("*");
