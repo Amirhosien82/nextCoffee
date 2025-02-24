@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  images: {
+  images: { 
+    domains: ['https://next-coffee-shokri.vercel.app/'],
+    
     remotePatterns: [
       {
         hostname: "ntdohxdqsywenwtnhkjj.supabase.co",
