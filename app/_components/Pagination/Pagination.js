@@ -2,7 +2,7 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import styled from "./Pagimation.module.css";
-function Pagination({ count = 40 }) {
+function Pagination({ count = 11 }) {
   const length = Math.ceil(count / 9);
   const router = useRouter();
   const searchParams = useSearchParams();
